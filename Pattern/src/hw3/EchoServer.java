@@ -51,12 +51,11 @@ public class EchoServer {
 
 /**
  * Echo Server implementation using Netty library
- * The ServerBootStrap class plays the Wrapper Facade role by hiding the low
- * 		level implementation of socket binding, etc.
- * The ServerBootStrap class also plays the Reactor role by dispatching events
+ * The ServerBootStrap class plays the Reactor role by dispatching events
  * 		through Channel and Channel Pipelines
- * The NioServerSocketChannleFactory class plays the Connector role in the
- * 		Acceptor-Connector pattern
+ * The NioServerSocketChannleFactory class plays the Wrapper Facade role 
+ * 		by hiding the low level implementation of socket 
+ * 		and the Connector role in the Acceptor-Connector pattern
  * @author ubuntu
  * 
  */
@@ -65,12 +64,16 @@ class EchoServerImpl {
 			"echo-server");
 
 	public void serve(int portNumber) {
-
+		// Create the NioServerSocketChannelFactory
+		// and assign a cachedThreadPool for the boss and the worker executor 
 		final ChannelFactory sscFactory = new NioServerSocketChannelFactory(
 				Executors.newCachedThreadPool(),
 				Executors.newCachedThreadPool());
 
+		// Create the server bootstrap object
 		ServerBootstrap bootstrap = new ServerBootstrap();
+		// Create a channelpipeline factory and set it to server bootstrap
+		// Here we have the EchoServer handler as the only handler in the chain
 		bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
 
 			@Override
@@ -86,6 +89,7 @@ class EchoServerImpl {
 		bootstrap.setOption("child.tcpNoDelay", true);
 		bootstrap.setOption("child.keepAlive", true);
 
+		// Start the server by calling the bind() method
 		Channel channel = bootstrap.bind();
 		allChannels.add(channel);
 
@@ -113,6 +117,7 @@ class EchoServerHandler extends SimpleChannelUpstreamHandler {
 			throws Exception {
 		StringBuilder echoMsg = new StringBuilder();
 
+		// message is a ChannelBuffer
 		ChannelBuffer buffer = (ChannelBuffer) e.getMessage();
 		while (buffer.readable()) {
 			char c = (char) buffer.readByte();
@@ -120,6 +125,7 @@ class EchoServerHandler extends SimpleChannelUpstreamHandler {
 			echoMsg.append(c);
 			if (c == Character.LINE_SEPARATOR) {
 				System.out.println(echoMsg);
+				// Send the received message back to the client
 				e.getChannel().write(
 						ChannelBuffers.wrappedBuffer(echoMsg.toString()
 								.getBytes()));

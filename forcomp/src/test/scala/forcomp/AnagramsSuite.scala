@@ -49,7 +49,11 @@ class AnagramsSuite extends FunSuite {
     assert(subtract(lard, r) === lad)
   }
 
-
+  test("subtract: z - zen") {
+    val z = List(('z', 1))
+    val zen = List(('e', 1),('n', 1), ('z', 1))
+    assert(subtract(z, zen) === Nil)
+  }
 
   test("combinations: []") {
     assert(combinations(Nil) === List(Nil))
@@ -71,13 +75,16 @@ class AnagramsSuite extends FunSuite {
     assert(combinations(abba).toSet === abbacomb.toSet)
   }
 
-
-
   test("sentence anagrams: []") {
     val sentence = List()
     assert(sentenceAnagrams(sentence) === List(Nil))
   }
 
+  test("sentence anagrams: Heather") {
+    val sentence = List("Heather")
+    println(sentenceAnagrams(sentence))
+  }
+  
   test("sentence anagrams: Linux rulez") {
     val sentence = List("Linux", "rulez")
     val anas = List(
@@ -105,4 +112,9 @@ class AnagramsSuite extends FunSuite {
     assert(sentenceAnagrams(sentence).toSet === anas.toSet)
   }  
 
+  ignore("sentence anagrams: This is a long sentence and there are a lot of things going on") {
+    val sentence = List("This", "is", "a", "long")
+    //val sentence = List("This", "is", "a", "long", "sentence", "and", "there", "are", "a", "lot", "of", "things", "going", "on")
+    sentenceAnagrams(sentence)
+  }
 }

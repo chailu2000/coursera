@@ -1,3 +1,4 @@
+package knapsack;
 import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -6,7 +7,7 @@ import java.util.ArrayList;
  * The class <code>Solver</code> is an implementation of a greedy algorithm to solve the knapsack problem.
  *
  */
-public class Solver {
+public class Solver2 {
     
     /**
      * The main class
@@ -80,6 +81,7 @@ public class Solver {
                 taken[i] = 0;
             }
         }
+        
         
         // prepare the solution in the specified output format
         System.out.println(value+" 0");

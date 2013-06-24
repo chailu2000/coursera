@@ -27,7 +27,9 @@ object Solver {
     val weightsUnsorted = wis.unzip._1
     val valuesUnsorted = vs.zipWithIndex.filter(e => wis.unzip._2.contains(e._2)).unzip._1
 
-    // sort weight at descending order
+    // sort weight at descending order of v/w
+    //val sortedWeights = weightsUnsorted.zipWithIndex.zip(valuesUnsorted).sortBy(e => 1.0 * e._2 / e._1._1)(Ordering[Double].reverse)
+    // sort weight at descending order 
     val sortedWeights = weightsUnsorted.zipWithIndex.zip(valuesUnsorted).sortBy(_._1._1)(Ordering[Int].reverse)
     //println(sortedWeights)
 
@@ -37,8 +39,8 @@ object Solver {
     val originalIndices = sortedWeights.unzip._1.unzip._2.toArray
     //println(values)
     //println(weights)
-    //println(is + " " + capacity)
-    
+    println(is + " " + capacity)
+
     val items = values.size
 
     /**
@@ -192,18 +194,16 @@ object BS {
                 weightsRest,
                 node.room - weights(idx)),
               idx, idx :: node.takes)
-            val nodeToInclude = if (takeNode.estimate >= notTakeNode.estimate) takeNode :: List() else notTakeNode :: List()
+            val nodeToInclude = if (takeNode.estimate > notTakeNode.estimate) takeNode :: List() 
+            else if (takeNode.estimate < notTakeNode.estimate) notTakeNode :: List()
+            else takeNode :: notTakeNode :: List() 
             if (takeNode.value >= bestNode.value) {
               bestSearchArr(values, weights, maxCapacity, (nodeToInclude ::: (nodeList.tail)), takeNode)
             } else {
               bestSearchArr(values, weights, maxCapacity, (nodeToInclude ::: (nodeList.tail)), bestNode)
             }
           } else {
-        	if (bestNode.value >= notTakeNode.estimate) {
-        		bestSearchArr(values, weights, maxCapacity, ( nodeList.tail), bestNode)
-        	} else {
-        		bestSearchArr(values, weights, maxCapacity, (notTakeNode ::(nodeList.tail)), bestNode)
-        	}
+            bestSearchArr(values, weights, maxCapacity, (notTakeNode :: (nodeList.tail)), bestNode)
           }
         }
       }
@@ -216,14 +216,13 @@ object BS {
     val maxCapacity = Integer.parseInt(capacity)
 
     val estimateValue = estimate(values, weights, maxCapacity)
-    //println("initial estimate: " + estimateValue)
-    //(0, Array(0))
+    println("initial estimate: " + estimateValue)
     val rootNode = new Node(0, maxCapacity, estimateValue, -1, List());
     //val resultNode = rootNode
 
     val s = System.nanoTime
     val resultNode = bestSearch(values, weights, maxCapacity, rootNode)
-    //println("time: " + (System.nanoTime - s) / 1e9 + "s")
+    println("time: " + (System.nanoTime - s) / 1e9 + "s")
 
     //println(value + " 0")
     //println(takes.mkString(" "))

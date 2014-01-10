@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		ViewFlipper flipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
-		flipper.setFlipInterval(50);
+		flipper.setFlipInterval(120);
 	}
 
 	@Override

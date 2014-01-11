@@ -26,6 +26,6 @@
         android:repeatCount="infinite"
         android:repeatMode="reverse"
         android:toXDelta="0%"
-        android:toYDelta="-150%" />
+        android:toYDelta="-60%p" />
 
 </set>

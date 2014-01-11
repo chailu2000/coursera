@@ -3,7 +3,7 @@
 
     <string name="app_name">HeadOrTail</string>
     <string name="action_settings">Settings</string>
-    <string name="flip_text">Tap to start/stop flip</string>
+    <string name="flip_text">Tap to start/stop</string>
     <string name="quarter_text">Quarter</string>
     <string name="head_text">You\'ve Got Head!</string>
     <string name="tail_text">You\'ve Got Tail!</string>

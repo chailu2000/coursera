@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.webkit.WebView;
 
-public class MainActivity extends Activity {
+public class WarOfWorldsActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

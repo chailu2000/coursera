@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.chaitech.webwebview.MainActivity"
+            android:name="com.chaitech.webwebview.WarOfWorldsActivity"
             android:label="@string/title_activity_war_of_worlds" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.chaitech.webwebview.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/title_activity_war_of_worlds" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +25,15 @@
         <activity
             android:name="com.chaitech.webwebview.JabberWockyActivity"
             android:label="@string/title_activity_jabber_wocky" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.chaitech.webwebview.UINasaActivity"
+            android:label="@string/title_activity_uinasa" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

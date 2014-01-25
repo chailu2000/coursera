@@ -3,6 +3,8 @@
 
     <string name="app_name">Web Web View</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_war_of_worlds">War of Worlds</string>
     <string name="title_activity_jabber_wocky">JabberWocky</string>
-
+    <string name="title_activity_uinasa">U of I @ NASA</string>
+ 
 </resources>

@@ -7,5 +7,7 @@
     <string name="title_activity_jabber_wocky">JabberWocky</string>
     <string name="title_activity_uinasa">U of I @ NASA</string>
     <string name="title_activity_round_ball">Round Ball</string>
+    <string name="wiki_button">Wiki</string>
+    <string name="pic_button">Picture</string>
 
 </resources>

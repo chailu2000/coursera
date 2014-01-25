@@ -6,7 +6,8 @@
 
     <uses-sdk
         android:minSdkVersion="10"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+            android:screenOrientation="portrait"
             android:name="com.chaitech.webwebview.WarOfWorldsActivity"
             android:label="@string/title_activity_war_of_worlds" >
             <intent-filter>
@@ -23,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name="com.chaitech.webwebview.JabberWockyActivity"
             android:label="@string/title_activity_jabber_wocky" >
             <intent-filter>
@@ -32,6 +35,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name="com.chaitech.webwebview.UINasaActivity"
             android:label="@string/title_activity_uinasa" >
             <intent-filter>
@@ -41,6 +45,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name="com.chaitech.webwebview.RoundBallActivity"
             android:label="@string/title_activity_round_ball" >
             <intent-filter>

@@ -11,12 +11,13 @@ import android.webkit.WebView;
 
 public class JabberWockyActivity extends Activity {
 	private MediaPlayer mp;
+	private WebView webView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jabberwocky);
-		WebView webView = (WebView) findViewById(R.id.webView1);
+		webView = (WebView) findViewById(R.id.webView1);
 		webView.loadUrl("file:///android_asset/jabberwocky.html");
 	}
 
@@ -31,6 +32,7 @@ public class JabberWockyActivity extends Activity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		webView.loadUrl("file:///android_asset/jabberwocky.html");
 		mp = MediaPlayer.create(this, R.raw.psychopath);
 		mp.start();
 	}
@@ -51,7 +53,7 @@ public class JabberWockyActivity extends Activity {
 	}
 
 	public void loadPicture(View view) {
-		WebView webView = (WebView) findViewById(R.id.webView1);
+		webView = (WebView) findViewById(R.id.webView1);
 		webView.loadUrl("file:///android_asset/jabberwocky.jpg");
 	}
 }

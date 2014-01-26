@@ -10,7 +10,7 @@ public class UINasaActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_uofiatnasa);
 		WebView webView = (WebView) findViewById(R.id.webView1);
 		webView.loadUrl("file:///android_asset/uofi-at-nasa.html");
 	}

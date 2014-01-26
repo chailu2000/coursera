@@ -10,7 +10,7 @@ public class WarOfWorldsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_warofworlds);
 		WebView webView = (WebView) findViewById(R.id.webView1);
 		webView.loadUrl("file:///android_asset/waroftheworlds.html");
 	}

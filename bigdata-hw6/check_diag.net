@@ -1,0 +1,139 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@1e1f8d";
+	jenginegenerator6060830225489488864L = "edu.ucla.belief.inference.JoinTreeSettings@17fb78d";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@1a982dd";
+	node_size = (130 55);
+}
+
+node b
+{
+	states = ("Y" "N" );
+	position = (705 -162);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "true";
+	ID = "variable5";
+	label = "Bronchitis";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node a
+{
+	states = ("Y" "N" );
+	position = (143 -55);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "Asia";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node x
+{
+	states = ("Y" "N" );
+	position = (141 -344);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable6";
+	label = "X-Ray_positive";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node s
+{
+	states = ("Y" "N" );
+	position = (601 -70);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "smoking";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node e
+{
+	states = ("Y" "N" );
+	position = (291 -234);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "either TB or Lung Cancer";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node l
+{
+	states = ("Y" "N" );
+	position = (464 -155);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "true";
+	ID = "variable4";
+	label = "lung_cancer";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node d
+{
+	states = ("Y" "N" );
+	position = (469 -346);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable7";
+	label = "dyspnoea";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node t
+{
+	states = ("Y" "N" );
+	position = (144 -154);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "true";
+	ID = "variable1";
+	ishiddenvariable = "false";
+	label = "turboculosis";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+potential ( b | s )
+{
+	data = ((	0.6	0.4	)
+		(	0.3	0.7	));
+}
+potential ( a | )
+{
+	data = (	0.01	0.99	);
+}
+potential ( x | e )
+{
+	data = ((	0.98	0.02	)
+		(	0.05	0.95	));
+}
+potential ( s | )
+{
+	data = (	0.5	0.5	);
+}
+potential ( e | l t )
+{
+	data = (((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	0.0	1.0	)));
+}
+potential ( l | s )
+{
+	data = ((	0.1	0.9	)
+		(	0.01	0.99	));
+}
+potential ( d | e b )
+{
+	data = (((	0.9	0.1	)
+		(	0.7	0.3	))
+		((	0.8	0.2	)
+		(	0.1	0.9	)));
+}
+potential ( t | a )
+{
+	data = ((	0.05	0.95	)
+		(	0.01	0.99	));
+}
